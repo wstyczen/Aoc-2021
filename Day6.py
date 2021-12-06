@@ -25,4 +25,3 @@ with open("Day6.txt") as f:
     pattern = compile("\\d+")
     fish = [int(fish) for fish in findall(pattern, f.readline())]
     print(getFishAfter(fish, 256))
-    # print(fish)
