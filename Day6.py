@@ -18,7 +18,6 @@ def getFishAfter(fish, days):
         dictFish[8] = new
         dictFish[6] += new
         day += 1
-    print(dictFish)
     return sum(dictFish.values())
 
 with open("Day6.txt") as f:
