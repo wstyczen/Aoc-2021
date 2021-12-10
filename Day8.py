@@ -4,7 +4,6 @@ with open("Day8.txt") as f:
     print(len([group for groups in output for group in groups if len(group) in [2, 3, 4, 7]]))
 
 from enum import Enum
-from re import S
 # P2
 class Segment(Enum):
     UP = 1
