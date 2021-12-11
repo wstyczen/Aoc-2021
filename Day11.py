@@ -1,6 +1,3 @@
-from os import times
-
-
 def isWithinArray(x, y, array):
     return x >= 0 and y >= 0 and x < len(array[0]) and y < len(array)
 
