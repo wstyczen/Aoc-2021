@@ -47,7 +47,7 @@ def getPart2(input):
         step += 1
     return fullFlashStep
 
-with open("Day11.txt") as f:
+with open("Input//Day11.txt") as f:
     input = [[int(c) for c in line.strip()] for line in f.readlines()]
     print(getPart1(input))
     print(getPart2(input))
