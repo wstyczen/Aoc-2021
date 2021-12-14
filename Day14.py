@@ -18,21 +18,18 @@ def processPolymer(pairs, modifiedInsertionRules, times = 10):
 def getPolymerLength(pairs):
     return int(sum(pairs.values()) + 1)
 
-def getOccurences(pairs):
+def getOccurences(pairs, template):
     occurences = defaultdict(int)
-    occurences['N'] += 1 # start
-    occurences['B'] += 1 # end
+    occurences[template[0]] += 1 # start character
+    occurences[template[-1]] += 1 # end character
     for pair, pairOccurences in pairs.items():
         for letter in pair:
             occurences[letter] += pairOccurences
     return {pair:int(occ/2) for pair, occ in occurences.items()}
 
-def getResult(pairs, modifiedInsertionRules, times = 10):
+def getResult(pairs, modifiedInsertionRules, template, times = 10):
     pairs = processPolymer(pairs, modifiedInsertionRules, times)
-    occurences = getOccurences(pairs)
-    # print("H: " + str(occurences["H"]))
-    # print("B: " + str(occurences["B"]))
-    # print("Result: ", end="")
+    occurences = getOccurences(pairs, template)
     return max(occurences.values()) - min(occurences.values())
 
 with open("Input//Day14.txt") as f:
@@ -49,6 +46,6 @@ with open("Input//Day14.txt") as f:
     pairs = getPairs(template)
 
     # PART 1
-    print(getResult(pairs, modifiedInsertionRules))
+    print(getResult(pairs, modifiedInsertionRules, template))
     # PART 2
-    print(getResult(pairs, modifiedInsertionRules, 40))
+    print(getResult(pairs, modifiedInsertionRules, template, 40))
