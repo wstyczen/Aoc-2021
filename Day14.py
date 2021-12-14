@@ -41,7 +41,7 @@ with open("Input//Day14.txt") as f:
     splitRule = lambda rule : rule.strip().split(" -> ")
     basicInsertionRules = {splitRule(line)[0]:splitRule(line)[1] for line in f.readlines()}
 
-    # since the order does not seem to matter I am just going to keep track of how many of each pair there is
+    # since the order does not seem to matter I am just going to keep track of each pair separately
     modifiedInsertionRules = defaultdict(list)
     for pair, inserted in basicInsertionRules.items():
         modifiedInsertionRules[pair].append(pair[0] + inserted)
