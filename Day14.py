@@ -20,8 +20,8 @@ def getPolymerLength(pairs):
 
 def getOccurences(pairs):
     occurences = defaultdict(int)
-    occurences['N'] += 1
-    occurences['B'] += 1
+    occurences['N'] += 1 # start
+    occurences['B'] += 1 # end
     for pair, pairOccurences in pairs.items():
         for letter in pair:
             occurences[letter] += pairOccurences
@@ -41,7 +41,7 @@ with open("Input//Day14.txt") as f:
     splitRule = lambda rule : rule.strip().split(" -> ")
     basicInsertionRules = {splitRule(line)[0]:splitRule(line)[1] for line in f.readlines()}
 
-    # since the order does not seem to matter I am just going to keep track of how many certain pairs there are
+    # since the order does not seem to matter I am just going to keep track of how many of each pair there is
     modifiedInsertionRules = defaultdict(list)
     for pair, inserted in basicInsertionRules.items():
         modifiedInsertionRules[pair].append(pair[0] + inserted)
